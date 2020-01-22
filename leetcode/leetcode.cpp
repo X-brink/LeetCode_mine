@@ -6,9 +6,10 @@
 #include <map>
 using namespace std;
 
-//LeetCode 1 两数之和
+
 class Solution {
 public:
+    //LeetCode 1 两数之和
     vector<int> twoSum(vector<int>& nums, int target) {
         vector<int> a;
         map<int, int> tmpmap;
@@ -22,7 +23,22 @@ public:
         }
         return a;
     }
+    //LeetCode137. 只出现一次的数字 II
+    int singleNumber(vector<int>& nums) {
+        map<int, int> reverse_nums;
+        int i = 0;
+        for (auto it = nums.begin(); it != nums.end(); it++) {
+            reverse_nums[*it]++;
+        }
+        for (auto it = reverse_nums.begin(); it != reverse_nums.end(); it++) {
+            if (it->second == 1) {
+                return it->first;
+            }
+        }
+        return 0;
+    }
 };
+
 int main()
 {
 #if 1
@@ -32,10 +48,13 @@ int main()
     vector<int> result;
     result = sry.twoSum(nums, 6);
     int i = 0;
+    cout << "LeetCode 1 两数之和 " << endl;
     for (auto it : result) {
         cout << "result." << i << " = " << it << endl;
         i++;
     }
+    vector<int> sigleNums = { 2,3,2,3,2,3,4 };
+    cout << "LeetCode 137. 只出现一次的数字 II singleNumber: " << sry.singleNumber(sigleNums) << endl;
 #endif
     return 0;
 }
