@@ -26,11 +26,26 @@ void size_vector() {
     aaa.push_back(a);
     cout << "push_back 2 sizeof(aaa):" << sizeof(aaa) << endl;
 }
+void test_map() {
+    map<int, int> new_state;
+    new_state[0] = 1;
+    for (int i = 0; i < 3; i++) {
+        if ((new_state[i] & 1) == 0) {
+            cout << "sry(new_state[i] & 1) = " << (new_state[i] & 1) << endl;
+        }
+        cout << "new_state[i] = " << new_state[i] << endl;
+        if ((new_state[i] & 1) == 0) {
+            cout << "(new_state[i] & 1) = " << (new_state[i] & 1) << endl;
+        }
+    }
+
+}
 
 int main()
 {
     //vec_reverse();
-    size_vector();
+    //size_vector();
+    test_map();
     return 0;
 }
 
